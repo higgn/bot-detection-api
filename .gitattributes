@@ -1,0 +1,2 @@
+bot-detection-api/data/X.npy filter=lfs diff=lfs merge=lfs -text
+*.npy filter=lfs diff=lfs merge=lfs -text
