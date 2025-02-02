@@ -9,6 +9,93 @@
 
 A scalable and efficient bot detection system for social media platforms. This project leverages **natural language processing (NLP)**, **machine learning**, and **behavioral analysis** to identify bot accounts based on their content and activity patterns.
 
+
+## LIVE URL ❤️ http://13.251.44.12:8050/  & http://13.251.44.12:5000/predict 
+
+## ☁️ AWS Deployment
+
+This section describes how to deploy the bot detection system on AWS.
+
+### Prerequisites
+
+*   An AWS account.
+*   An EC2 instance (Amazon Linux recommended).
+*   Basic knowledge of SSH and Linux command line.
+
+### Steps
+
+1.  **Connect to your EC2 instance:** Use SSH to connect to your EC2 instance.
+
+2.  **Clone the repository:**
+
+    ```bash
+    git clone [https://github.com/higgn/bot-detection-api.git](https://github.com/higgn/bot-detection-api.git)
+    cd bot-detection-api
+    ```
+
+3.  **Create and activate a virtual environment:**
+
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+    ```
+
+4.  **Install dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    pip install gunicorn
+    ```
+
+5.  **Download NLTK data:**
+
+    ```python
+    import nltk
+    nltk.download('stopwords', quiet=True)
+    nltk.download('wordnet', quiet=True)
+    nltk.download('vader_lexicon', quiet=True)
+    ```
+
+6.  **Run the Flask API (using Gunicorn in production):**
+
+    ```bash
+    cd app
+    gunicorn --bind 0.0.0.0:5000 app:app &  # Run in the background
+    ```
+
+7.  **Run the Dash App (using Gunicorn in production):**
+
+    ```bash
+    cd app
+    gunicorn --bind 0.0.0.0:8050 dash_app:server & # Run in the background
+    ```
+
+8.  **Configure Security Groups:**
+
+    *   Open the EC2 console and navigate to "Security groups."
+    *   Select the security group associated with your EC2 instance.
+    *   Add inbound rules:
+        *   **Custom TCP Rule, TCP, Port 5000, Source 0.0.0.0/0 (or restricted IP)** - For the Flask API.
+        *   **Custom TCP Rule, TCP, Port 8050, Source 0.0.0.0/0 (or restricted IP)** - For the Dash app.
+
+9.  **Access the applications:**
+
+    *   **Flask API:** `http://<your_ec2_public_ip>:5000/predict`
+    *   **Dash App:** `http://<your_ec2_public_ip>:8050`
+
+10. **Keep applications running persistently (using tmux):**
+
+    *   Install tmux: `sudo yum install tmux` (or `sudo apt install tmux` on Debian/Ubuntu).
+    *   Start a tmux session: `tmux new -s bot_detection`
+    *   Inside the tmux session, create two windows (Ctrl+b c) and run the Flask API and Dash app in separate windows (following steps 6 and 7).
+    *   Detach from the tmux session (Ctrl+b d). The applications will continue running in the background.
+
+**Important Notes:**
+
+*   **Replace placeholders:** Replace `<your_ec2_public_ip>` with the actual public IP address or DNS name of your EC2 instance.
+*   **Security:** Restricting the source IP in your security group rules is highly recommended for production.  Use HTTPS for production deployments to encrypt traffic.
+*   **Process managers (systemd, pm2, supervisor):** For a more robust production deployment, consider using a process manager like `systemd`, `pm2`, or `supervisor` to manage your Flask API and Dash app processes. This will ensure that the applications restart automatically if the server reboots or if there are any unexpected errors. The provided instructions use `tmux` for simplicity, but a process manager is best for production.
+*   **Load Balancer (for scale and HA):** For production-level scalability and high availability, consider using a load balancer in front of multiple EC2 instances running your applications.
 ---
 
 ## 📝 Table of Contents
