@@ -5,6 +5,8 @@
 [![Flask](https://img.shields.io/badge/Flask-API-green)](https://flask.palletsprojects.com/)  
 [![Dash](https://img.shields.io/badge/Dash-Dashboard-yellow)](https://dash.plotly.com/)  
 
+![image](https://github.com/user-attachments/assets/d383758a-2974-47b5-8635-609ab053ec73)
+
 A scalable and efficient bot detection system for social media platforms. This project leverages **natural language processing (NLP)**, **machine learning**, and **behavioral analysis** to identify bot accounts based on their content and activity patterns.
 
 ---
@@ -146,7 +148,13 @@ The Dash app provides an interactive interface for bot detection. Users can inpu
 
 Prediction: Bot or Not a Bot.
 Probabilities: Confidence scores for each class.
-Dash App Screenshot
+Dash App Screenshot :
+![image](https://github.com/user-attachments/assets/a63d2bf4-02eb-4f9a-8be0-37742902257c)
+![image](https://github.com/user-attachments/assets/d2373cb9-43c0-4508-805a-232e33ad1b9a)
+![image](https://github.com/user-attachments/assets/cd5dafe9-3b7b-4474-bfab-4696a5975dc4)
+
+
+
 
 ## 🤖 Model Details
 
