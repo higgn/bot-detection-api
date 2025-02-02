@@ -23,7 +23,7 @@ A scalable and efficient bot detection system for social media platforms. This p
 
 ---
 
-## 🌟 #Overview
+#🌟Overview
 Bots on social media platforms are becoming increasingly sophisticated, spreading misinformation and manipulating public discussions. This project aims to **detect bot accounts** by analyzing their **content patterns**, **sentiment**, and **behavioral features**. The system provides:
 - **Real-time bot detection** using a trained machine learning model.
 - **Interactive Dash dashboard** for visualizing predictions.
