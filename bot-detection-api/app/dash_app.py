@@ -161,7 +161,7 @@ def predict_bot(n_clicks, tweet_text, hashtags, retweet_count, mention_count, fo
         }
 
         # Send request to Flask API
-        response = requests.post("http://127.0.0.1:5000/predict", json=input_data)
+        response = requests.post("http://0.0.0.0:5000/predict", json=input_data) 
         result = response.json()
 
         if "error" in result:
