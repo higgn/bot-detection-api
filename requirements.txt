@@ -1,0 +1,14 @@
+numpy
+pandas
+joblib
+scikit-learn
+lightgbm
+imblearn
+seaborn
+matplotlib
+nltk
+vaderSentiment
+flask
+dash
+dash-bootstrap-components
+requests
