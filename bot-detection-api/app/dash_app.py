@@ -183,6 +183,5 @@ def predict_bot(n_clicks, tweet_text, hashtags, retweet_count, mention_count, fo
         ], fig
     except Exception as e:
         return f"Error: {str(e)}", {}
-
 if __name__ == "__main__":
-    app.run_server(debug=True, port=8050)
+    app.run_server(debug=True, host='0.0.0.0', port=8050) 
